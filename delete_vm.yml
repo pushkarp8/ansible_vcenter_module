@@ -1,0 +1,12 @@
+- name: delete a vm
+  hosts: localhost
+  connection: local
+
+  tasks:
+    - name: delete VM
+      vcenter:
+        vcenter_hostname: "{{vcenter_hostname}}"
+        username: "{{vcenter_username}}"
+        password: "{{vcenter_password}}"
+        action: delete
+        vm_name: newvm001

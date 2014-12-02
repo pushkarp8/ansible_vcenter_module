@@ -1,0 +1,44 @@
+- name: Clone VM and customize
+  hosts: localhost
+  connection: local
+
+  tasks:
+    - name: Clone VM 
+      vcenter:
+        vcenter_hostname: "{{vcenter_hostname}}"
+        username: "{{vcenter_username}}"
+        password: "{{vcenter_password}}"
+        action: clone
+        vm_name: newvm001
+        template: ubuntu_trusty_template
+        vnics:
+          nic1:
+            vswitch: 'Install'
+            ip: 192.168.1.4
+            gateway: 192.168.1.1
+            netmask: 255.255.255.0
+            ipv6_addr: 
+            ipv6_defaultgw: 
+            ipv6_prefix_length: 64
+            # 'standard' or 'dvs'
+            network_type: dvs
+        dns_list:
+          - 8.8.8.8
+          - 4.4.4.4
+        suffix_list:
+          - example.com
+        datacenter_name: "{{datacenter}}"
+        cluster_name: "{{cluster}}"
+        vm_disk:
+          disk1:
+            size_gb: 20
+            type: thin
+          disk2:
+            size_gb: 10
+            type: thin
+        datastores: "{{datastores}}"
+        num_cpus: 1
+        memory_mb: 2048
+        domain_name: example.com
+        resource_pools: "{{resource_pools}}"
+        os_family: linux

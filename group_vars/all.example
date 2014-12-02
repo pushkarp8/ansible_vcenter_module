@@ -1,0 +1,32 @@
+vcenter_hostname: hostname
+vcenter_username: username
+vcenter_password: password
+
+# datastores and resource pools will be randomly selected
+datastores:
+    - 'DataStore_1'
+    - 'DataStore_2'
+resource_pools:
+    - 'RP_1'
+    - 'RP_2''
+
+datacenter: 'Datacenter1'
+cluster: 'Cluster1'
+
+#if using set_perms, roleid here. you can get this through the MOB
+# login to vcenter.hostname/mob click on 'content', then 'Authorization Manager', then invoke RetrieveAllPermissions (-1 is usually the admin role)
+role_id: -1
+
+# customization_spec params
+org_name: 'Organization'
+full_name: 'ansible-robot'
+dns_list:
+  - '8.8.8.8'
+  - '4.4.4.4'
+suffix_list:
+  - 'example.com'
+  - 'sas.psu.edu'
+  - 'psu.edu'
+domain_name: example.com
+admin_pass: 'windows_password'
+

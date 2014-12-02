@@ -1,0 +1,13 @@
+- name: delete snapshot
+  hosts: localhost
+  connection: local
+
+  tasks:
+    - name: delete all snapshots
+      vcenter:
+        vcenter_hostname: "{{vcenter_hostname}}"
+        username: "{{vcenter_username}}"
+        password: "{{vcenter_password}}"
+        action: delete_snapshot
+        vm_name: newvm001
+        ss_name: all

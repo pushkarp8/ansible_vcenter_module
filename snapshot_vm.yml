@@ -1,0 +1,14 @@
+- name: take a snapshot of a VM
+  hosts: localhost
+  connection: local
+ 
+  tasks:
+    - name: take a snapshot
+      vcenter:
+        vcenter_hostname: "{{vcenter_hostname}}"
+        username: "{{vcenter_username}}"
+        password: "{{vcenter_password}}"
+        action: snapshot
+        vm_name: newvm001
+        ss_name: 'software upgrade'
+        ss_memory: False

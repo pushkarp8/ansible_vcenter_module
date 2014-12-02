@@ -1,0 +1,14 @@
+- name: Clone VM and customize
+  hosts: localhost
+  connection: local
+
+  tasks:
+    - name: reconfigure vm
+      vcenter:
+        vcenter_hostname: "{{vcenter_hostname}}"
+        username: "{{vcenter_username}}"
+        password: "{{vcenter_password}}"
+        action: reconfigure
+        vm_name: newvm001
+        num_cpus: 1
+        memory_mb: 2048
