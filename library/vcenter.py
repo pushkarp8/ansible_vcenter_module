@@ -700,6 +700,7 @@ def clone_vm(
         try:
             ipv6_addr = vnics[nic]['ipv6_addr']
         except:
+            ipv6_addr = None
             pass
         try:
             ipv6_prefix_length = vnics[nic]['ipv6_prefix_length']
